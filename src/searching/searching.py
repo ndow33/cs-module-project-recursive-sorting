@@ -1,5 +1,8 @@
 # TO-DO: Implement a recursive implementation of binary search
-def binary_search(arr, target, start, end):
+def binary_search(arr, target, start=None, end=None):
+    if start is None and end is None:
+        start = 0 
+        end = len(arr)-1
     # Check the base case
     # as long as the end is greater than
     # the start...
