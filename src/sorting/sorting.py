@@ -1,6 +1,6 @@
 # TO-DO: complete the helper function below to merge 2 SORTED arrays
 def merge(arrA, arrB):
-    c = [] # final output array
+    c = [] # final output/merged array
     ai, bi = 0, 0 # track the index of a and b
     # as long as both ai and bi are less than 
     # the length of either of the arrays
@@ -28,16 +28,18 @@ def merge(arrA, arrB):
 
 # TO-DO: implement the Merge Sort function below recursively
 def merge_sort(arr):
-    # a list of zero or one is already sorted
-    if len(arr) <= 1:
-        return arr
+    # merge sort continually splits lists down
+    # to one element
     
-    # split the list in half and call merge sort recursively 
-    left = merge_sort(arr[:len(arr)//2])
-    right = merge_sort(arr[len(arr)//2:])
-
-    # merge the now sorted sublists
-    return merge(left, right)
+    if len(arr) > 1:
+        # split the list in half and call merge sort recursively 
+        left = merge_sort(arr[:len(arr)//2])
+        right = merge_sort(arr[len(arr)//2:])
+        # once we have arrays of length 1
+        # merge the now sorted sublists
+        arr = merge(left, right)
+     
+    return arr
 
 # STRETCH: implement the recursive logic for merge sort in a way that doesn't 
 # utilize any extra memory

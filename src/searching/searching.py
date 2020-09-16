@@ -1,12 +1,16 @@
 # TO-DO: Implement a recursive implementation of binary search
 def binary_search(arr, target, start, end):
     # Check the base case
+    # as long as the end is greater than
+    # the start...
     if end >= start:
         # find the middle
         mid = (end + start) // 2
 
         # if the target is the middle number:
         if arr[mid] == target:
+            # return the index where
+            # the value is located
             return mid
         
         # if the target is less than the mid:
@@ -18,6 +22,8 @@ def binary_search(arr, target, start, end):
             # recursively iterate with mid+1 as the new start
             return binary_search(arr, target, mid+1, end)
     else:
+        # if start and end have crossed each other
+        # we have searched the entire array and
         # the element is not present in the array
         return -1
 
